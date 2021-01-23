@@ -7,4 +7,5 @@ Dependencies:
 - Skaffold
 
 Run this command to define JWT_KEY
+
 kubectl create secret generic jwt-secret --from-literal=JWT_KEY=asdf
