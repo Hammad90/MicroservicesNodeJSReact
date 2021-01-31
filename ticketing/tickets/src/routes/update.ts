@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
 import { body } from 'express-validator';
-import { requireAuth, validateRequest, NotFoundError, NotAuthorizedError } from '@hmdtickets/common';
+import { requireAuth, validateRequest, NotFoundError, NotAuthorizedError, BadRequestError } from '@hmdtickets/common';
 import { Ticket } from '../models/ticket';
 import { TicketUpdatedPublisher } from '../events/publishers/ticket-update-publisher';
 import { natsWrapper } from '../nats-wrapper';
@@ -24,6 +24,10 @@ async (req: Request, res: Response) => {
     }
     if(ticket.userId !== req.currentUser!.id){
         throw new NotAuthorizedError();
+    }
+
+    if(ticket.orderId){
+        throw new BadRequestError('Cannot edit reserved ticket');
     }
 
     ticket.set({
