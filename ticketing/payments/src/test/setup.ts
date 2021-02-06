@@ -6,12 +6,14 @@ import jwt from 'jsonwebtoken';
 declare global{
     namespace NodeJS {
         interface Global {
-            signin(): string[]
+            signin(id?: string): string[]
         }
     }
 }
 
 jest.mock('../nats-wrapper');
+
+process.env.STRIPE_KEY = 'sk_test_51IGJQyIvag2uuTIm5EXxjhzWnE4fjHqaxONo1cPjPYdhae8PlW1gX6osTQ8ET8f1Szn8d8IJOzSFPvqBIExgD9qf00iviHVBBr'
 
 let mongo: any;
 beforeAll(async ()=> {
@@ -39,10 +41,10 @@ afterAll( async () => {
     await mongoose.connection.close();
 });
 
-global.signin = () => {
+global.signin = (id?: string) => {
     // build JWT payload { email, password }
     const payload = {
-        id: new mongoose.Types.ObjectId().toHexString(),
+        id: id || new mongoose.Types.ObjectId().toHexString(),
         email: 'test@test.com'
     };
 
