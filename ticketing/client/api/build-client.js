@@ -8,6 +8,7 @@ const buildClient = ({req}) => {
         });
     } else{
         return axios.create({
+            baseURL: '/'
         });
     }
 }

@@ -1,7 +1,7 @@
 import { TicketCreatedEvent } from '@hmdtickets/common';
 import { TicketCreatedListener } from '../ticket-created-listener';
 import { natsWrapper } from '../../../nats-wrapper';
-import  mongoose, { mongo }  from 'mongoose';
+import  mongoose  from 'mongoose';
 import { Ticket } from '../../../models/ticket';
 import { Message } from 'node-nats-streaming';
 
