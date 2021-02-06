@@ -1,6 +1,8 @@
 name: tests-auth
 on:
   pull_request:
+    paths:
+      - '/ticketing/auth/**'
 
 jobs:
   build:
