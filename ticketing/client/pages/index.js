@@ -17,11 +17,7 @@ const LandingPage = ({currentUser, tickets}) => {
     })
     return (
     <div>
-<<<<<<< HEAD
         <h2>Tickets</h2>
-=======
-        <h1>Tickets</h1> 
->>>>>>> master
         <table className="table">
             <thead>
                 <tr>
