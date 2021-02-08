@@ -11,12 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: cd ticketing/client && docker build -t hammadooz/client . 
+      - run: cd ticketing/client && docker build -t hammadooz/clientapp . 
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         env:
           DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
           DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-      - run: docker push hammadooz/client
+      - run: docker push hammadooz/clientapp
       - uses: digitalocean/action-doctl@v2
         with:
           token: ${{secrets.DIGITALOCEAN_ACCESS_TOKEN}}
