@@ -6,6 +6,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/use-regex: 'true'
+    nginx.ingress.kubernetes.io/from-to-www-redirect: 'true'
 spec:
   rules:
     - host: www.hmd-ticketing.xyz
@@ -38,6 +39,7 @@ metadata:
   annotations:
     service.beta.kubernetes.io/do-loadbalancer-enable-proxy-protocol: 'true'
     service.beta.kubernetes.io/do-loadbalancer-hostname: 'www.hmd-ticketing.xyz'
+    nginx.ingress.kubernetes.io/from-to-www-redirect: 'true'
   labels:
     helm.sh/chart: ingress-nginx-2.0.3
     app.kubernetes.io/name: ingress-nginx
