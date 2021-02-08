@@ -16,10 +16,10 @@ const TicketShow = ({ ticket }) => {
             <h4>Price: {ticket.price}</h4>
             {errors}
             <button onClick={() => doRequest()} className="btn btn-primary">Purchase</button>
-            <div className="container">
-            <div className="alert alert-info"><h5>To complete the purchase you can try 
-                this credit card "4242 4242 4242 4242" with any dates and cvv</h5></div>
-                </div>
+            <div className="alert alert-info mt-5">
+                <h5>To complete the purchase you can try 
+                this credit card "4242 4242 4242 4242" with any dates and cvv</h5>
+            </div>
         </div>
     );
 };
