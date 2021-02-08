@@ -1,6 +1,8 @@
 name: deploy-manifests
 on:
   push:
+    branches:
+      - master
     paths:
       - 'ticketing/infra/**'
 
